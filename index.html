@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
 	<meta charset="utf-8" />
+    <script src="resources/libs/lodash.min.js"></script>
 </head>
 <body>
     <div style="height:50px;"></div>
@@ -26,8 +27,9 @@
 
 
     //背景
-    var bg = function (cav) {
+    var bg = function (cav,deep) {
         this.cav = cav;
+        this.deep = deep;
         this.imageUrl = '/resources/images/bg.jpg';
         this.img = new Image();
         this.img.src = this.imageUrl;
@@ -51,8 +53,9 @@
 
 
     //开始按钮
-    var btnStart = function (cav) {
+    var btnStart = function (cav,deep) {
         this.cav = cav;
+        this.deep = deep;
     }
     //游戏开始方法
     btnStart.startGame = function () {
@@ -83,8 +86,9 @@
 
 
     //帧显示
-    var frame = function (cav) {
+    var frame = function (cav,deep) {
         this.cav = cav;
+        this.deep = deep;
 
     }
     frame.prototype.draw = function () {
@@ -109,8 +113,9 @@
 
 
     //第一个小精灵
-    var sprite1 = function (cav) {
+    var sprite1 = function (cav,deep) {
         this.cav = cav;
+        this.deep = deep;
         this.imageUrl = '/resources/images/sprite1.png';
         this.img = new Image();
         this.img.src = this.imageUrl;
@@ -152,10 +157,12 @@
 
     //渲染列表
     var drawList = [];
-    drawList.push(new bg(cavs));
-    drawList.push(new frame(cavs));
-    drawList.push(new btnStart(cavs));
-    drawList.push(new sprite1(cavs));
+    drawList.push(new bg(cavs,4));
+    drawList.push(new frame(cavs,3));
+    drawList.push(new btnStart(cavs,2));
+    drawList.push(new sprite1(cavs, 1));
+
+    drawList = _.orderBy(drawList, ['deep'], ['desc']);
 
 
     //坐标系统转换函数
