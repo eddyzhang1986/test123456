@@ -33,10 +33,25 @@
             this.imageUrl = 'resources/images/bg.jpg';
             this.img = new Image();
             this.img.src = this.imageUrl;
+            this.move = 0;
         }
         bg.prototype.draw = function () {
+            //var ctx = this.cav.getContext('2d');
+            //ctx.drawImage(this.img, 0, 0);
             var ctx = this.cav.getContext('2d');
-            ctx.drawImage(this.img, 0, 0);
+            ///var count = Math.round((1000 / 10) / (1000 / frameNum));
+            //this.showCount++;
+            //if (this.showCount >= count) {
+            //    this.showCount = 0;
+            //    this.index++;
+            //}
+            //if (this.index >= 4) {
+            //    this.index = 0;
+            //}
+            this.move++;
+            console.log(this.move);
+            //console.log('index', this.index);
+            ctx.drawImage(this.img, 0, 0, 800, 600, 800 - this.move, 0, 800, 600);
         }
         bg.prototype.onmousedown = function (location) {
 
