@@ -369,9 +369,16 @@
 
         }
 
+        //清楚残留影像
+        function clearRects() {
+            var ctx = cavs.getContext('2d');
+            ctx.clearRect(0, 0, 860, 550);
+        }
+
         //主循环
         function loop() {
             var begin = new Date();
+            clearRects();
             mainUpdate();
             var end = new Date();
             //计算一次渲染所用的时间/毫秒
