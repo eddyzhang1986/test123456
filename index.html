@@ -50,8 +50,12 @@
             //}
             this.move++;
             console.log(this.move);
+            var wd = 800 - this.move;
+            if (wd <= 0) {
+                this.move = 0;
+            }
             //console.log('index', this.index);
-            ctx.drawImage(this.img, 0, 0, 800, 600, 800 - this.move, 0, 800, 600);
+            ctx.drawImage(this.img, 0, 0, 800, 600, wd, 0, 800, 600);
         }
         bg.prototype.onmousedown = function (location) {
 
