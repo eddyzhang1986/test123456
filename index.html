@@ -55,7 +55,7 @@
                 this.move = 0;
             }
             //console.log('index', this.index);
-            ctx.drawImage(this.img, 0, 0, 800, 600, wd, 0, 800, 600);
+            ctx.drawImage(this.img, 0, 0, 800, 600, 0, 0, 800, 600);
         }
         bg.prototype.onmousedown = function (location) {
 
@@ -67,6 +67,53 @@
 
         }
         bg.prototype.onmouseover = function (location) {
+
+        }
+
+
+
+
+        //背景2两幅图片用来进行切换
+        var bg2 = function (cav, deep) {
+            this.cav = cav;
+            this.deep = deep;
+            this.imageUrl = 'resources/images/bg.jpg';
+            this.img = new Image();
+            this.img.src = this.imageUrl;
+            this.move = 0;
+        }
+        bg2.prototype.draw = function () {
+            //var ctx = this.cav.getContext('2d');
+            //ctx.drawImage(this.img, 0, 0);
+            var ctx = this.cav.getContext('2d');
+            ///var count = Math.round((1000 / 10) / (1000 / frameNum));
+            //this.showCount++;
+            //if (this.showCount >= count) {
+            //    this.showCount = 0;
+            //    this.index++;
+            //}
+            //if (this.index >= 4) {
+            //    this.index = 0;
+            //}
+            this.move++;
+            console.log(this.move);
+            var wd = 800 - this.move;
+            if (wd <= 0) {
+                this.move = 0;
+            }
+            //console.log('index', this.index);
+            ctx.drawImage(this.img, 0, 0, 800, 600, 0, 0, 800, 600);
+        }
+        bg2.prototype.onmousedown = function (location) {
+
+        }
+        bg2.prototype.onmouseup = function (location) {
+
+        }
+        bg2.prototype.onmousemove = function (location) {
+
+        }
+        bg2.prototype.onmouseover = function (location) {
 
         }
 
@@ -256,6 +303,7 @@
         //渲染列表
         var drawList = [];
         drawList.push(new bg(cavs, 4));
+        drawList.push(new bg2(cavs, 4));
         drawList.push(new frame(cavs, 3));
         drawList.push(new btnStart(cavs, 2));
         drawList.push(new sprite1(cavs, 1));
