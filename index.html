@@ -12,396 +12,69 @@
     <!--主画布-->
     <canvas id="mainCav" width="860" height="550"></canvas>
 
+    <script src="resources/sprites/bg.js" type="text/javascript"></script>
+    <script src="resources/sprites/bg2.js" type="text/javascript"></script>
+    <script src="resources/sprites/frameLabel.js" type="text/javascript"></script>
+    <script src="resources/sprites/car.js" type="text/javascript"></script>
+    <script src="resources/sprites/startButton.js" type="text/javascript"></script>
+    <script src="resources/sprites/game.js" type="text/javascript"></script>
 
     <script type="text/javascript">
 
+
+
+
+
+
         //主画布
         var cavs = document.getElementById('mainCav');
-
-
-        //游戏帧数
-        var frameNum = 0;
-
-        //时间间隔
-        var step = (1000 / 60);
-
-
-        //背景
-        var bg = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-            this.imageUrl = 'resources/images/bg3.png';
-            this.img = new Image();
-            this.img.src = this.imageUrl;
-            this.move = 0;
-            this.begpos = 0;
-        }
-        bg.prototype.draw = function () {
-            //var ctx = this.cav.getContext('2d');
-            //ctx.drawImage(this.img, 0, 0);
-            var ctx = this.cav.getContext('2d');
-            ///var count = Math.round((1000 / 10) / (1000 / frameNum));
-            //this.showCount++;
-            //if (this.showCount >= count) {
-            //    this.showCount = 0;
-            //    this.index++;
-            //}
-            //if (this.index >= 4) {
-            //    this.index = 0;
-            //}
-            //this.move++;
-            //console.log(this.move);
-            //var wd = 0 - this.move;
-            //if (wd <= -860) {
-            //    this.move = 0;
-            //}
-            //console.log('index', this.index);
-            this.begpos--;
-            if (this.begpos <= -860) {
-                this.begpos = 860;
-            }
-            ctx.drawImage(this.img, 0, 0, 860, 550, this.begpos, 0, 860, 550);
-        }
-        bg.prototype.onmousedown = function (location) {
-
-        }
-        bg.prototype.onmouseup = function (location) {
-
-        }
-        bg.prototype.onmousemove = function (location) {
-
-        }
-        bg.prototype.onmouseover = function (location) {
-
-        }
-
-
-
-
-        //背景2两幅图片用来进行切换
-        var bg2 = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-            this.imageUrl = 'resources/images/bg4.png';
-            this.img = new Image();
-            this.img.src = this.imageUrl;
-            this.move = 0;
-            this.begpos = 860;
-        }
-        bg2.prototype.draw = function () {
-            //var ctx = this.cav.getContext('2d');
-            //ctx.drawImage(this.img, 0, 0);
-            var ctx = this.cav.getContext('2d');
-            ///var count = Math.round((1000 / 10) / (1000 / frameNum));
-            //this.showCount++;
-            //if (this.showCount >= count) {
-            //    this.showCount = 0;
-            //    this.index++;
-            //}
-            //if (this.index >= 4) {
-            //    this.index = 0;
-            //}
-            //this.move++;
-            //console.log(this.move);
-            //var wd = 860 - this.move;
-            //if (wd <= 0) {
-            //    this.move = 0;
-            //}
-            //console.log('index', this.index);
-            this.begpos--;
-            if (this.begpos <= -860) {
-                this.begpos = 860;
-            }
-            ctx.drawImage(this.img, 0, 0, 860, 550, this.begpos, 0, 860, 550);
-        }
-        bg2.prototype.onmousedown = function (location) {
-
-        }
-        bg2.prototype.onmouseup = function (location) {
-
-        }
-        bg2.prototype.onmousemove = function (location) {
-
-        }
-        bg2.prototype.onmouseover = function (location) {
-
-        }
-
-
-        //开始按钮
-        var btnStart = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-        }
-        //游戏开始方法
-        btnStart.startGame = function () {
-        }
-        //按钮绘图
-        btnStart.prototype.draw = function () {
-            var ctx = this.cav.getContext('2d');
-            //ctx.fillStyle = "#FF0000";
-            //ctx.fillRect(100, 100, 200 / 2, 200 / 2);
-            //ctx.font = "20px Arial";
-            //ctx.fillStyle = "#0000FF";
-            ctx.fillText("囧", 860 / 2, 550 / 2);
-        }
-        btnStart.prototype.onmousedown = function (location) {
-            console.log('点击了画布x' + location.x + ',y:' + location.y);
-        }
-        btnStart.prototype.onmouseup = function (location) {
-
-        }
-        btnStart.prototype.onmousemove = function (location) {
-
-        }
-        btnStart.prototype.onmouseover = function (location) {
-
-        }
-
-
-
-
-        //帧显示
-        var frame = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-
-        }
-        frame.prototype.draw = function () {
-            var ctx = this.cav.getContext('2d');
-            ctx.font = "20px Arial";
-            ctx.fillStyle = "#FF0000";
-            ctx.fillText("帧数:" + frameNum, 10, 30);
-        }
-        frame.prototype.onmousedown = function (location) {
-
-        }
-        frame.prototype.onmouseup = function (location) {
-
-        }
-        frame.prototype.onmousemove = function (location) {
-
-        }
-        frame.prototype.onmouseover = function (location) {
-
-        }
-
-
-
-        //第一个小精灵
-        var sprite1 = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-            this.imageUrl = 'resources/images/sprite1.png';
-            this.img = new Image();
-            this.img.src = this.imageUrl;
-            this.showCount = 0;
-            this.index = 0;
-            this.move = 0;
-        }
-        sprite1.prototype.draw = function () {
-            var ctx = this.cav.getContext('2d');
-            var count = Math.round((1000 / 10) / (1000 / frameNum));
-            this.showCount++;
-            if (this.showCount >= count) {
-                this.showCount = 0;
-                this.index++;
-            }
-            if (this.index >= 4) {
-                this.index = 0;
-            }
-            //this.move++;
-            //console.log('index', this.index);
-            ctx.drawImage(this.img, this.index * 175, (175 * 2 + 10), 175, 160, 60 + this.move, 270, 175, 160);
-        }
-        sprite1.prototype.onmousedown = function (location) {
-
-        }
-        sprite1.prototype.onmouseup = function (location) {
-
-        }
-        sprite1.prototype.onmousemove = function (location) {
-
-        }
-        sprite1.prototype.onmouseover = function (location) {
-
-        }
-
-
-
-        //第二个小精灵
-        var sprite2 = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-            this.imageUrl = 'resources/images/sprite1.png';
-            this.img = new Image();
-            this.img.src = this.imageUrl;
-            this.showCount = 0;
-            this.index = 0;
-            this.move = 0;
-        }
-        sprite2.prototype.draw = function () {
-            var ctx = this.cav.getContext('2d');
-            var count = Math.round((1000 / 10) / (1000 / frameNum));
-            this.showCount++;
-            if (this.showCount >= count) {
-                this.showCount = 0;
-                this.index++;
-            }
-            if (this.index >= 4) {
-                this.index = 0;
-            }
-            this.move++;
-            //console.log('index', this.index);
-            ctx.drawImage(this.img, this.index * 175, (175 * 3 + 10), 175, 160, 0 + this.move, 100, 175, 160);
-        }
-        sprite2.prototype.onmousedown = function (location) {
-
-        }
-        sprite2.prototype.onmouseup = function (location) {
-
-        }
-        sprite2.prototype.onmousemove = function (location) {
-
-        }
-        sprite2.prototype.onmouseover = function (location) {
-
-        }
-
-
-        //第三个小精灵
-        var sprite3 = function (cav, deep) {
-            this.cav = cav;
-            this.deep = deep;
-            this.imageUrl = 'resources/images/sprite1.png';
-            this.img = new Image();
-            this.img.src = this.imageUrl;
-            this.showCount = 0;
-            this.index = 0;
-            this.move = 0;
-        }
-        sprite3.prototype.draw = function () {
-            var ctx = this.cav.getContext('2d');
-            var count = Math.round((1000 / 10) / (1000 / frameNum));
-            this.showCount++;
-            if (this.showCount >= count) {
-                this.showCount = 0;
-                this.index++;
-            }
-            if (this.index >= 4) {
-                this.index = 0;
-            }
-            this.move++;
-            //console.log('index', this.index);
-            ctx.drawImage(this.img, this.index * 175, (175 * 1 + 10), 175, 160, 860 - this.move, 400, 175, 160);
-        }
-        sprite3.prototype.onmousedown = function (location) {
-
-        }
-        sprite3.prototype.onmouseup = function (location) {
-
-        }
-        sprite3.prototype.onmousemove = function (location) {
-
-        }
-        sprite3.prototype.onmouseover = function (location) {
-
-        }
-
-
-
-        //渲染列表
-        var drawList = [];
-        drawList.push(new bg(cavs, 4));
-        drawList.push(new bg2(cavs, 4));
-        drawList.push(new frame(cavs, 3));
-        drawList.push(new btnStart(cavs, 2));
-        drawList.push(new sprite1(cavs, 1));
-        //drawList.push(new sprite2(cavs, 1));
-        //drawList.push(new sprite3(cavs, 1));
-
-        drawList = _.orderBy(drawList, ['deep'], ['desc']);
-
-
-        //坐标系统转换函数
-        function getLocation(x, y) {
-            var bbox = cavs.getBoundingClientRect();
-            return {
-                x: (x - bbox.left) * (cavs.width / bbox.width),
-                y: (y - bbox.top) * (cavs.height / bbox.height)
-            };
-        }
-
-        //系统级别的事件
-        cavs.onmousedown = function (e) {
-            var location = getLocation(e.clientX, e.clientY);
-            for (var i = 0; i < drawList.length; i++) {
-                drawList[i].onmousedown(location);
-            }
-        }
-        cavs.onmouseup = function (e) {
-            var location = getLocation(e.clientX, e.clientY);
-            for (var i = 0; i < drawList.length; i++) {
-                drawList[i].onmouseup(location);
-            }
-        }
-        cavs.onmousemove = function (e) {
-            var location = getLocation(e.clientX, e.clientY);
-            for (var i = 0; i < drawList.length; i++) {
-                drawList[i].onmousemove(location);
-            }
-        }
-        cavs.onmouseover = function (e) {
-            var location = getLocation(e.clientX, e.clientY);
-            for (var i = 0; i < drawList.length; i++) {
-                drawList[i].onmouseover(location);
-            }
-        }
-
-
-        //主update
-        function mainUpdate() {
-
-            for (var i = 0; i < drawList.length; i++) {
-
-                drawList[i].draw();
-            }
-
-        }
-
-        //清楚残留影像
-        function clearRects() {
-            var ctx = cavs.getContext('2d');
-            ctx.clearRect(0, 0, 860, 550);
-        }
-
-        //主循环
-        function loop() {
-            var begin = new Date();
-            clearRects();
-            mainUpdate();
-            var end = new Date();
-            //计算一次渲染所用的时间/毫秒
-            var interval = end - begin;
-            //需要等待的时间
-            var wait = step - interval;
-
-            //计算帧数
-            frameNum = Math.round((1000 / (interval + wait)));
-            if (wait <= 0) {
-                setTimeout(loop, 0);
-            }
-            else {
-                setTimeout(loop, wait);
-            }
-        }
-        //启动游戏渲染
-        setTimeout(loop, 0);
-
-
-
+        //初始化游戏
+        var g = game(cavs);
+        //初始化游戏小精灵
+        g.initSprites();
+        //游戏开始
+        g.start();
+
+
+
+
+        ////坐标系统转换函数
+        //function getLocation(x, y) {
+        //    var bbox = cavs.getBoundingClientRect();
+        //    return {
+        //        x: (x - bbox.left) * (cavs.width / bbox.width),
+        //        y: (y - bbox.top) * (cavs.height / bbox.height)
+        //    };
+        //}
+
+        ////系统级别的事件
+        //cavs.onmousedown = function (e) {
+        //    var location = getLocation(e.clientX, e.clientY);
+        //    for (var i = 0; i < drawList.length; i++) {
+        //        drawList[i].onmousedown(location);
+        //    }
+        //}
+        //cavs.onmouseup = function (e) {
+        //    var location = getLocation(e.clientX, e.clientY);
+        //    for (var i = 0; i < drawList.length; i++) {
+        //        drawList[i].onmouseup(location);
+        //    }
+        //}
+        //cavs.onmousemove = function (e) {
+        //    var location = getLocation(e.clientX, e.clientY);
+        //    for (var i = 0; i < drawList.length; i++) {
+        //        drawList[i].onmousemove(location);
+        //    }
+        //}
+        //cavs.onmouseover = function (e) {
+        //    var location = getLocation(e.clientX, e.clientY);
+        //    for (var i = 0; i < drawList.length; i++) {
+        //        drawList[i].onmouseover(location);
+        //    }
+        //}
 
 
     </script>
+
 </body>
 </html>
