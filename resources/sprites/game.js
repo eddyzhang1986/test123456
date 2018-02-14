@@ -66,7 +66,54 @@ var game = function (cavs) {
             setTimeout(loop, wait);
         }
     }
+
+
+
+    //对游戏的事件进行处理
+    var handleEvents = function () {
+
+        //坐标系统转换函数
+        function getLocation(x, y) {
+            var bbox = cavs.getBoundingClientRect();
+            return {
+                x: (x - bbox.left) * (cavs.width / bbox.width),
+                y: (y - bbox.top) * (cavs.height / bbox.height)
+            };
+        }
+
+        //系统级别的事件
+        cavs.onmousedown = function (e) {
+            var location = getLocation(e.clientX, e.clientY);
+            for (var i = 0; i < sprites.length; i++) {
+                sprites[i].onmousedown(location);
+            }
+        }
+        cavs.onmouseup = function (e) {
+            var location = getLocation(e.clientX, e.clientY);
+            for (var i = 0; i < sprites.length; i++) {
+                sprites[i].onmouseup(location);
+            }
+        }
+        cavs.onmousemove = function (e) {
+            var location = getLocation(e.clientX, e.clientY);
+            for (var i = 0; i < sprites.length; i++) {
+                sprites[i].onmousemove(location);
+            }
+        }
+        cavs.onmouseover = function (e) {
+            var location = getLocation(e.clientX, e.clientY);
+            for (var i = 0; i < sprites.length; i++) {
+                sprites[i].onmouseover(location);
+            }
+        }
+
+
+    }
+
+    //开始整体游戏的循环
     var start = function () {
+        //进行事件的处理
+        handleEvents();
         //启动游戏渲染
         setTimeout(loop, 0);
     }
