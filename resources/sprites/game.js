@@ -85,25 +85,33 @@ var game = function (cavs) {
         cavs.onmousedown = function (e) {
             var location = getLocation(e.clientX, e.clientY);
             for (var i = 0; i < sprites.length; i++) {
-                sprites[i].onmousedown(location);
+                if (sprites[i].onmousedown) {
+                    sprites[i].onmousedown(location);
+                }
             }
         }
         cavs.onmouseup = function (e) {
             var location = getLocation(e.clientX, e.clientY);
             for (var i = 0; i < sprites.length; i++) {
-                sprites[i].onmouseup(location);
+                if (sprites[i].onmouseup) {
+                    sprites[i].onmouseup(location);
+                }
             }
         }
         cavs.onmousemove = function (e) {
             var location = getLocation(e.clientX, e.clientY);
             for (var i = 0; i < sprites.length; i++) {
-                sprites[i].onmousemove(location);
+                if (sprites[i].onmousemove) {
+                    sprites[i].onmousemove(location);
+                }
             }
         }
         cavs.onmouseover = function (e) {
             var location = getLocation(e.clientX, e.clientY);
             for (var i = 0; i < sprites.length; i++) {
-                sprites[i].onmouseover(location);
+                if (sprites[i].onmouseover) {
+                    sprites[i].onmouseover(location);
+                }
             }
         }
 
