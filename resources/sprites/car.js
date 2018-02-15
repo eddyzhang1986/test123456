@@ -10,7 +10,7 @@ var car = function (cav, deep) {
     this.move = 0;
 
     //默认小车朝前面开
-    this.direct = 0;
+    this.direct = 2;
 }
 car.prototype.update = function (frameNum) {
     var count = Math.round((1000 / 10) / (1000 / frameNum));
@@ -25,7 +25,7 @@ car.prototype.update = function (frameNum) {
 }
 car.prototype.draw = function () {
     var ctx = this.cav.getContext('2d');
-    ctx.drawImage(this.img, this.index * 175, (175 *  this.direct + 10), 175, 160, 60 + this.move, 270, 175, 160);
+    ctx.drawImage(this.img, this.index * 175, (175 * this.direct + 10), 175, 160, 60 + this.move, 270, 175, 160);
 }
 car.prototype.onmousedown = function (location) {
 
@@ -39,7 +39,28 @@ car.prototype.onmousemove = function (location) {
 car.prototype.onmouseover = function (location) {
 
 }
-car.prototype.onkeydown=function(event){
+car.prototype.onkeydown = function (e) {
 
-    alert('按下键盘');
+    var keynum;
+    var keychar;
+
+    keynum = window.event ? e.keyCode : e.which;
+    keychar = String.fromCharCode(keynum);
+    //alert(keynum+':'+keychar);
+    switch (keynum) {
+        case 38:
+            this.direct = 3;
+            break;
+        case 40:
+            this.direct = 0;
+            break;
+        case 37:
+            this.direct = 1;
+            break;
+        case 39:
+            this.direct = 2;
+            break;
+        default:
+            break;
+    }
 }
