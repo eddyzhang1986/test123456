@@ -115,6 +115,16 @@ var game = function (cavs) {
             }
         }
 
+        //响应键盘事件
+        window.onkeydown=function(e){
+
+            for (var i = 0; i < sprites.length; i++) {
+                if (sprites[i].onkeydown) {
+                    sprites[i].onkeydown(e);
+                }
+            }
+        }
+
 
     }
 

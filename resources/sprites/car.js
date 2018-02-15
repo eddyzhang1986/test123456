@@ -39,3 +39,7 @@ car.prototype.onmousemove = function (location) {
 car.prototype.onmouseover = function (location) {
 
 }
+car.prototype.onkeydown=function(event){
+
+    alert('按下键盘');
+}
