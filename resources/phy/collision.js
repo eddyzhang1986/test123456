@@ -1,6 +1,6 @@
 
 //碰撞类
-var collision = {
+var Collision = {
 
     //设置物体的表面弹性如果没有设置则设置为0.2
     elastic: function (restitution) {
