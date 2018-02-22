@@ -9,6 +9,11 @@ var car = function (cav, deep) {
     this.index = 0;
     this.move = 0;
 
+    this.x = 150;
+    this.y = 380;
+    this.width = 175;
+    this.height = 175;
+
     //默认小车朝前面开
     this.direct = 2;
 }
@@ -25,7 +30,7 @@ car.prototype.update = function (frameNum) {
 }
 car.prototype.draw = function () {
     var ctx = this.cav.getContext('2d');
-    ctx.drawImage(this.img, this.index * 175, (175 * this.direct + 10), 175, 160, 60 + this.move, 270, 175, 160);
+    ctx.drawImage(this.img, this.index * 175, (175 * this.direct + 10), 175, 160, (this.x - this.width * 0.5), (this.y - this.height * 0.5), 175, 160);
 }
 car.prototype.onmousedown = function (location) {
 
