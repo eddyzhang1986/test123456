@@ -8,9 +8,10 @@ var game = function (cavs) {
     //时间间隔
     var step = (1000 / 60);
 
-    //需要绘制的小精灵列表
-    var sprites = [];
-
+    //需要绘制的小精灵列表,这是为了以后在逻辑中
+    //方便进行对象的添加和删除以及物理引擎的处理
+    window.G = { sprites: [] };
+    var sprites = window.G.sprites;
 
     var initSprites = function () {
         //渲染列表
@@ -23,22 +24,23 @@ var game = function (cavs) {
         //sprites.push(new sprite3(cavs, 1));
         sprites = _.orderBy(sprites, ['deep'], ['desc']);
     }
+
+
+    //主update
+    var update = function () {
+        for (var i = 0; i < sprites.length; i++) {
+            sprites[i].update(frameNum);
+        }
+    }
+
+
     //主场景绘制
     var draw = function () {
         for (var i = 0; i < sprites.length; i++) {
             sprites[i].draw();
         }
-
     }
-    //主update
-    var update = function () {
 
-        for (var i = 0; i < sprites.length; i++) {
-
-            sprites[i].update(frameNum);
-        }
-
-    }
     //清楚残留影像
     var clear = function () {
         var ctx = cavs.getContext('2d');
