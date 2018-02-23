@@ -17,6 +17,8 @@ var cavs = document.getElementById('mainCav');
 //初始化游戏
 var g = game(cavs);
 //初始化游戏小精灵
+//设置Gamex为全局变量
+window.Gamex = g.Gamex;
 initSprites(g.Gamex.sprites);
 //游戏开始
 g.start();

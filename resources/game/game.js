@@ -10,7 +10,7 @@ var game = function (cavs) {
 
     //需要绘制的小精灵列表,这是为了以后在逻辑中
     //方便进行对象的添加和删除以及物理引擎的处理
-    var Gamex = { sprites: [], cavs: cavs };
+    var Gamex = { sprites: [], cavs: cavs, frameNum: 0 };
     var sprites = Gamex.sprites;
 
 
@@ -49,6 +49,10 @@ var game = function (cavs) {
 
         //计算帧数
         frameNum = Math.round((1000 / (interval + wait)));
+
+        //每次循环都更新frameNum
+        Gamex.frameNum = frameNum;
+
         if (wait <= 0) {
             setTimeout(loop, 0);
         }
