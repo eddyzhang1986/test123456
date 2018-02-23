@@ -1,7 +1,7 @@
 ﻿
 //开始按钮
-var startButton = function (cav, deep) {
-    this.cav = cav;
+var startButton = function (deep) {
+
     this.deep = deep;
 }
 //游戏开始方法
@@ -13,8 +13,8 @@ startButton.prototype.update = function (frameNum) {
 
 }
 //按钮绘图
-startButton.prototype.draw = function () {
-    var ctx = this.cav.getContext('2d');
+startButton.prototype.draw = function (cavs) {
+    var ctx = cavs.getContext('2d');
     //ctx.fillStyle = "#FF0000";
     //ctx.fillRect(100, 100, 200 / 2, 200 / 2);
     //ctx.font = "20px Arial";

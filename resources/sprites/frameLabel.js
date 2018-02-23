@@ -1,7 +1,7 @@
 ﻿
 //帧显示
-var frameLabel = function (cav, deep) {
-    this.cav = cav;
+var frameLabel = function (deep) {
+
     this.deep = deep;
     this.frameNum = 0;
 
@@ -9,8 +9,8 @@ var frameLabel = function (cav, deep) {
 frameLabel.prototype.update = function (frameNum) {
     this.frameNum = frameNum;
 }
-frameLabel.prototype.draw = function () {
-    var ctx = this.cav.getContext('2d');
+frameLabel.prototype.draw = function (cavs) {
+    var ctx = cavs.getContext('2d');
     ctx.font = "20px Arial";
     ctx.fillStyle = "#FF0000";
     ctx.fillText("帧数:" + this.frameNum, 10, 30);

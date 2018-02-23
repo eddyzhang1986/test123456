@@ -1,6 +1,6 @@
 ﻿//背景2两幅图片用来进行切换
-var bg2 = function (cav, deep) {
-    this.cav = cav;
+var bg2 = function (deep) {
+
     this.deep = deep;
     this.imageUrl = 'resources/images/bg4.png';
     this.img = new Image();
@@ -16,8 +16,8 @@ bg2.prototype.update = function (frameNum) {
     }
 
 }
-bg2.prototype.draw = function () {
-    var ctx = this.cav.getContext('2d');
+bg2.prototype.draw = function (cavs) {
+    var ctx = cavs.getContext('2d');
     ctx.drawImage(this.img, 0, 0, 860, 550, this.begpos, 0, 860, 550);
 }
 bg2.prototype.onmousedown = function (location) {

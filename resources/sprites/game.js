@@ -10,16 +10,16 @@ var game = function (cavs) {
 
     //需要绘制的小精灵列表,这是为了以后在逻辑中
     //方便进行对象的添加和删除以及物理引擎的处理
-    window.G = { sprites: [] };
+    window.G = { sprites: [], cavs: cavs };
     var sprites = window.G.sprites;
 
     var initSprites = function () {
         //渲染列表
-        sprites.push(new bg(cavs, 4));
-        sprites.push(new bg2(cavs, 4));
-        sprites.push(new frameLabel(cavs, 3));
-        sprites.push(new startButton(cavs, 2));
-        sprites.push(new car(cavs, 1));
+        sprites.push(new bg(4));
+        sprites.push(new bg2(4));
+        sprites.push(new frameLabel(3));
+        sprites.push(new startButton(2));
+        sprites.push(new car(1));
         //sprites.push(new sprite2(cavs, 1));
         //sprites.push(new sprite3(cavs, 1));
         sprites = _.orderBy(sprites, ['deep'], ['desc']);
@@ -37,7 +37,7 @@ var game = function (cavs) {
     //主场景绘制
     var draw = function () {
         for (var i = 0; i < sprites.length; i++) {
-            sprites[i].draw();
+            sprites[i].draw(cavs);
         }
     }
 

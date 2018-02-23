@@ -2,8 +2,8 @@
 
 
 //第二个小精灵
-var sprite2 = function (cav, deep) {
-    this.cav = cav;
+var sprite2 = function (deep) {
+
     this.deep = deep;
     this.imageUrl = 'resources/images/sprite1.png';
     this.img = new Image();
@@ -12,8 +12,8 @@ var sprite2 = function (cav, deep) {
     this.index = 0;
     this.move = 0;
 }
-sprite2.prototype.draw = function () {
-    var ctx = this.cav.getContext('2d');
+sprite2.prototype.draw = function (cavs) {
+    var ctx = cavs.getContext('2d');
     var count = Math.round((1000 / 10) / (1000 / frameNum));
     this.showCount++;
     if (this.showCount >= count) {
@@ -42,8 +42,8 @@ sprite2.prototype.onmouseover = function (location) {
 
 
 //第三个小精灵
-var sprite3 = function (cav, deep) {
-    this.cav = cav;
+var sprite3 = function (deep) {
+
     this.deep = deep;
     this.imageUrl = 'resources/images/sprite1.png';
     this.img = new Image();

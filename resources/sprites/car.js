@@ -1,6 +1,6 @@
 ﻿//第一个小精灵
-var car = function (cav, deep) {
-    this.cav = cav;
+var car = function (deep) {
+
     this.deep = deep;
     this.imageUrl = 'resources/images/sprite1.png';
     this.img = new Image();
@@ -38,8 +38,8 @@ car.prototype.update = function (frameNum) {
         this.index = 0;
     }
 }
-car.prototype.draw = function () {
-    var ctx = this.cav.getContext('2d');
+car.prototype.draw = function (cavs) {
+    var ctx = cavs.getContext('2d');
     ctx.drawImage(this.img, this.index * 175, (175 * this.direct + 10), 175, 160, (this.x - this.width * 0.5), (this.y - this.height * 0.5), 175, 160);
 }
 car.prototype.onmousedown = function (location) {
