@@ -17,31 +17,10 @@
     <script src="resources/sprites/frameLabel.js" type="text/javascript"></script>
     <script src="resources/sprites/car.js" type="text/javascript"></script>
     <script src="resources/sprites/startButton.js" type="text/javascript"></script>
-    <script src="resources/sprites/game.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-
-
-
-
-
-
-        //主画布
-        var cavs = document.getElementById('mainCav');
-        //初始化游戏
-        var g = game(cavs);
-        //初始化游戏小精灵
-        g.initSprites();
-        //游戏开始
-        g.start();
-
-
-
-
-
-
-
-    </script>
+    <!--游戏主循环-->
+    <script src="resources/game/game.js" type="text/javascript"></script>
+    <!--游戏入口-->
+    <script src="resources/game/enter.js" type="text/javascript"></script>
 
 </body>
 </html>
