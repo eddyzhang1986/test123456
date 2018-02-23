@@ -7,10 +7,20 @@ var car = function (cav, deep) {
     this.img.src = this.imageUrl;
     this.showCount = 0;
     this.index = 0;
-    this.move = 0;
 
+    //坐标
     this.x = 150;
     this.y = 380;
+
+    //初始速度
+    this.vx = 0;
+    this.vy = 0;
+
+    //初始加速度
+    this.ax = 0;
+    this.ay = 0;
+
+
     this.width = 175;
     this.height = 175;
 
