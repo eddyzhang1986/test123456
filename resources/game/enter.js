@@ -1,9 +1,9 @@
-//³õÊ¼»¯äÖÈ¾Ğ¡¾«Áé
+ï»¿//åˆå§‹åŒ–æ¸²æŸ“å°ç²¾çµ
 var initSprites = function () {
 
-    //ĞèÒªäÖÈ¾µÄĞ¡¾«ÁéÁĞ±í
+    //éœ€è¦æ¸²æŸ“çš„å°ç²¾çµåˆ—è¡¨
     var sprites = window.Gamex.sprites;
-    //äÖÈ¾ÁĞ±í
+    //æ¸²æŸ“åˆ—è¡¨
     sprites.push(new bg(4));
     sprites.push(new bg2(4));
     sprites.push(new frameLabel(3));
@@ -16,13 +16,13 @@ var initSprites = function () {
 }
 
 
-//Ö÷»­²¼
+//ä¸»ç”»å¸ƒ
 var cavs = document.getElementById('mainCav');
-//³õÊ¼»¯ÓÎÏ·
+//åˆå§‹åŒ–æ¸¸æˆ
 var g = game(cavs);
-//ÉèÖÃGamexÎªÈ«¾Ö±äÁ¿
+//è®¾ç½®Gamexä¸ºå…¨å±€å˜é‡
 window.Gamex = g.Gamex;
-//³õÊ¼»¯ÓÎÏ·Ğ¡¾«Áé
+//åˆå§‹åŒ–æ¸¸æˆå°ç²¾çµ
 initSprites();
-//ÓÎÏ·¿ªÊ¼
+//æ¸¸æˆå¼€å§‹
 g.start();
