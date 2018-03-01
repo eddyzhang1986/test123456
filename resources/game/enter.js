@@ -10,7 +10,6 @@ var initSprites = function () {
     sprites.push(new startButton(2));
     sprites.push(new car(150, 380, 1));
     sprites.push(new car(350, 380, 1));
-    sprites.push(new car(350, 50, 1));
     //sprites.push(new sprite2(cavs, 1));
     //sprites.push(new sprite3(cavs, 1));
     sprites = _.orderBy(sprites, ['deep'], ['desc']);
