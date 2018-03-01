@@ -1,5 +1,5 @@
 ﻿//第一个小精灵
-var car = function (deep) {
+var car = function (x, y, deep) {
 
     this.deep = deep;
     this.imageUrl = 'resources/images/sprite1.png';
@@ -9,8 +9,8 @@ var car = function (deep) {
     this.index = 0;
 
     //坐标
-    this.x = 150;
-    this.y = 380;
+    this.x = x;
+    this.y = y;
 
     //初始速度
     this.vx = 0;
