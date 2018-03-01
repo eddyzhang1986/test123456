@@ -16,7 +16,17 @@ var game = function (cavs) {
 
     //主update
     var update = function () {
+
         for (var i = 0; i < sprites.length; i++) {
+
+            if (sprites[i].vx) {
+                sprites[i].x = sprites[i].x + sprites[i].vx;
+            }
+
+            if (sprites[i].vy) {
+                sprites[i].y = sprites[i].y + sprites[i].vy;
+            }
+
             sprites[i].update(frameNum);
         }
     }

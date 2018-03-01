@@ -8,8 +8,8 @@ var initSprites = function () {
     sprites.push(new bg2(4));
     sprites.push(new frameLabel(3));
     sprites.push(new startButton(2));
-    sprites.push(new car(150, 380, 1));
-    sprites.push(new car(350, 380, 1));
+    sprites.push(new car(150, 380, 0, 0, 1));
+    sprites.push(new car(350, 380, 1, 0, 1));
     //sprites.push(new sprite2(cavs, 1));
     //sprites.push(new sprite3(cavs, 1));
     sprites = _.orderBy(sprites, ['deep'], ['desc']);
