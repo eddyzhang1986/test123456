@@ -1,5 +1,5 @@
 ﻿//初始化渲染小精灵
-var initSprites = function () {
+var addSprites = function () {
 
     //需要渲染的小精灵列表
     var sprites = window.Gamex.sprites;
@@ -23,7 +23,8 @@ var cavs = document.getElementById('mainCav');
 var g = game(cavs);
 //设置Gamex为全局变量
 window.Gamex = g.Gamex;
-//初始化游戏小精灵
-initSprites();
-//游戏开始
-g.start();
+//添加游戏小精灵
+addSprites();
+//游戏主循环开始
+g.run();
+

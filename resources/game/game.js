@@ -129,7 +129,7 @@ var game = function (cavs) {
     }
 
     //开始整体游戏的循环
-    var start = function () {
+    var run = function () {
         //进行事件的处理
         handleEvents();
         //启动游戏渲染
@@ -138,7 +138,7 @@ var game = function (cavs) {
 
 
     return {
-        start: start,
+        run: run,
         Gamex: Gamex
     }
 }
