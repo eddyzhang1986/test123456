@@ -26,6 +26,9 @@ var car = function (x, y, vx, vy, deep) {
 
     //默认小车朝前面开
     this.direct = 2;
+
+    //是否使用物理引擎的特性
+    this.usePhy = true;
 }
 car.prototype.update = function (elapsed) {
     //每秒钟刷1次动画,每次动画持续1000/10毫秒,除以每帧绘制所用的毫秒数,就等于每个动画要持续多少个绘制帧

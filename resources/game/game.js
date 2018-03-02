@@ -11,22 +11,38 @@ var game = function (cavs) {
     var sprites = Gamex.sprites;
 
 
+    //拥有物理特性的精灵列表更新
+    var updatePhy = function (sp, elapsed) {
+        for (var i = 0; i < sp.length; i++) {
+            //速度 * 时间 / 1000 = 每帧移动的距离 单位为 px/秒
+            if (sp[i].vx) {
+                sp[i].x = sp[i].x + (sp[i].vx * elapsed / 1000);
+            }
+            if (sp[i].vy) {
+                sp[i].y = sp[i].y + (sp[i].vy * elapsed / 1000);
+            }
+
+            sp[i].update(elapsed);
+        }
+    }
+
+    //无物理特性的精灵列表更新
+    var updateNoPhy = function (sp, elapsed) {
+        for (var i = 0; i < sp.length; i++) {
+            sp[i].update(elapsed);
+        }
+    }
+
     //主update
     var update = function (elapsed) {
 
-        for (var i = 0; i < sprites.length; i++) {
+        //无物理特性的精灵列表
+        var noPhyList = _.filter(sprites, { usePhy: false });
+        updateNoPhy(noPhyList, elapsed);
+        //拥有物理特性的精灵列表
+        var phyList = _.filter(sprites, { usePhy: true });
+        updatePhy(phyList, elapsed);
 
-            //速度 * 时间 / 1000 = 每帧移动的距离 单位为 px/秒
-            if (sprites[i].vx) {
-                sprites[i].x = sprites[i].x + (sprites[i].vx * elapsed / 1000);
-            }
-
-            if (sprites[i].vy) {
-                sprites[i].y = sprites[i].y + (sprites[i].vy * elapsed / 1000);
-            }
-
-            sprites[i].update(elapsed);
-        }
     }
 
 

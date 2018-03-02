@@ -7,6 +7,9 @@ var bg2 = function (deep) {
     this.img.src = this.imageUrl;
     this.move = 0;
     this.begpos = 860;
+
+    //是否使用物理引擎的特性
+    this.usePhy = false;
 }
 bg2.prototype.update = function (elapsed) {
 

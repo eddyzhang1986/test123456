@@ -2,7 +2,11 @@
 //开始按钮
 var startButton = function (deep) {
 
+    //精灵所在的层深度
     this.deep = deep;
+
+    //是否使用物理引擎的特性
+    this.usePhy = false;
 }
 //游戏开始方法
 startButton.startGame = function () {

@@ -5,6 +5,9 @@ var frameLabel = function (deep) {
     this.deep = deep;
     this.frameNum = 0;
 
+    //是否使用物理引擎的特性
+    this.usePhy = false;
+
 }
 frameLabel.prototype.update = function (elapsed) {
     this.frameNum = Math.round(1000 / elapsed);
