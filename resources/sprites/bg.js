@@ -8,12 +8,14 @@ var bg = function (deep) {
     this.move = 0;
     this.begpos = 0;
 
+    this.vx = -100;
+
     //是否使用物理引擎的特性
     this.usePhy = false;
 }
 bg.prototype.update = function (elapsed) {
 
-    this.begpos--;
+    this.begpos = this.begpos + Math.floor(this.vx * elapsed / 1000);
     if (this.begpos <= -860) {
         this.begpos = 860;
     }
