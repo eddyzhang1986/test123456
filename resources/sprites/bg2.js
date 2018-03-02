@@ -15,7 +15,7 @@ var bg2 = function (deep) {
 }
 bg2.prototype.update = function (elapsed) {
 
-    this.begpos = this.begpos + Math.floor(this.vx * elapsed / 1000);
+    this.begpos = this.begpos + Math.ceil(this.vx * elapsed / 1000);
     if (this.begpos <= -860) {
         this.begpos = 860;
     }
