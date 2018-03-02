@@ -7,7 +7,7 @@ var game = function (cavs) {
 
     //需要绘制的小精灵列表,这是为了以后在逻辑中
     //方便进行对象的添加和删除以及物理引擎的处理
-    var Gamex = { sprites: [], cavs: cavs, elapsed: step };
+    var Gamex = { sprites: [], cavs: cavs, elapsed: step, paused: false };
     var sprites = Gamex.sprites;
 
 
@@ -63,7 +63,9 @@ var game = function (cavs) {
     var loop = function () {
         var begin = new Date();
         clear();
-        update(Gamex.elapsed);
+        if (!Gamex.paused) {
+            update(Gamex.elapsed);
+        }
         draw();
         var end = new Date();
         //计算一次渲染所用的时间/毫秒
