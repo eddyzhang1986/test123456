@@ -6,8 +6,8 @@ var frameLabel = function (deep) {
     this.frameNum = 0;
 
 }
-frameLabel.prototype.update = function (frameNum) {
-    this.frameNum = frameNum;
+frameLabel.prototype.update = function (elapsed) {
+    this.frameNum = Math.round(1000 / elapsed);
 }
 frameLabel.prototype.draw = function (cavs) {
     var ctx = cavs.getContext('2d');

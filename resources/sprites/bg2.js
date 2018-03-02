@@ -8,7 +8,7 @@ var bg2 = function (deep) {
     this.move = 0;
     this.begpos = 860;
 }
-bg2.prototype.update = function (frameNum) {
+bg2.prototype.update = function (elapsed) {
 
     this.begpos--;
     if (this.begpos <= -860) {

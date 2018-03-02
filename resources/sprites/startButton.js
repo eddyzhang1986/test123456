@@ -8,7 +8,7 @@ var startButton = function (deep) {
 startButton.startGame = function () {
 }
 //更新方法
-startButton.prototype.update = function (frameNum) {
+startButton.prototype.update = function (elapsed) {
 
 
 }

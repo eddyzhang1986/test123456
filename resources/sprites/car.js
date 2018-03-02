@@ -27,8 +27,8 @@ var car = function (x, y, vx, vy, deep) {
     //默认小车朝前面开
     this.direct = 2;
 }
-car.prototype.update = function (frameNum) {
-    var count = Math.round((1000 / 10) / (1000 / frameNum));
+car.prototype.update = function (elapsed) {
+    var count = Math.round((1000 / 10) / elapsed);
     this.showCount++;
     if (this.showCount >= count) {
         this.showCount = 0;

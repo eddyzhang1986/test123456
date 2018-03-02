@@ -2,15 +2,12 @@
 var game = function (cavs) {
 
 
-    //游戏帧数
-    var frameNum = 0;
-
     //时间间隔
     var step = (1000 / 60);
 
     //需要绘制的小精灵列表,这是为了以后在逻辑中
     //方便进行对象的添加和删除以及物理引擎的处理
-    var Gamex = { sprites: [], cavs: cavs, frameNum: 0 };
+    var Gamex = { sprites: [], cavs: cavs, elapsed: step };
     var sprites = Gamex.sprites;
 
 
@@ -27,7 +24,7 @@ var game = function (cavs) {
                 sprites[i].y = sprites[i].y + sprites[i].vy;
             }
 
-            sprites[i].update(frameNum);
+            sprites[i].update(Gamex.elapsed);
         }
     }
 
@@ -57,12 +54,11 @@ var game = function (cavs) {
         //需要等待的时间
         var wait = step - interval;
 
-        //计算帧数
-        frameNum = Math.round((1000 / (interval + wait)));
+        //计算每一次主循环实际使用的时间
+        Gamex.elapsed = interval + (wait <= 0 ? 0 : wait);
 
-        //每次循环都更新frameNum
-        Gamex.frameNum = frameNum;
 
+        //调用主循环
         if (wait <= 0) {
             setTimeout(loop, 0);
         }
