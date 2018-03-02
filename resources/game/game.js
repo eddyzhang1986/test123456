@@ -12,7 +12,7 @@ var game = function (cavs) {
 
 
     //主update
-    var update = function () {
+    var update = function (elapsed) {
 
         for (var i = 0; i < sprites.length; i++) {
 
@@ -24,7 +24,7 @@ var game = function (cavs) {
                 sprites[i].y = sprites[i].y + sprites[i].vy;
             }
 
-            sprites[i].update(Gamex.elapsed);
+            sprites[i].update(elapsed);
         }
     }
 
@@ -46,7 +46,7 @@ var game = function (cavs) {
     var loop = function () {
         var begin = new Date();
         clear();
-        update();
+        update(Gamex.elapsed);
         draw();
         var end = new Date();
         //计算一次渲染所用的时间/毫秒
