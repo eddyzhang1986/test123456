@@ -16,12 +16,13 @@ var game = function (cavs) {
 
         for (var i = 0; i < sprites.length; i++) {
 
+            //速度 * 时间 / 1000 = 每帧移动的距离 单位为 px/秒
             if (sprites[i].vx) {
-                sprites[i].x = sprites[i].x + sprites[i].vx;
+                sprites[i].x = sprites[i].x + (sprites[i].vx * elapsed / 1000);
             }
 
             if (sprites[i].vy) {
-                sprites[i].y = sprites[i].y + sprites[i].vy;
+                sprites[i].y = sprites[i].y + (sprites[i].vy * elapsed / 1000);
             }
 
             sprites[i].update(elapsed);
