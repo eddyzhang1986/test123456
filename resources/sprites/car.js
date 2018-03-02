@@ -28,6 +28,7 @@ var car = function (x, y, vx, vy, deep) {
     this.direct = 2;
 }
 car.prototype.update = function (elapsed) {
+    //每秒钟刷1次动画,每次动画持续1000/10毫秒,除以每帧绘制所用的毫秒数,就等于每个动画要持续多少个绘制帧
     var count = Math.round((1000 / 10) / elapsed);
     this.showCount++;
     if (this.showCount >= count) {
