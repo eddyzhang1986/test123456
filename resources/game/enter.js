@@ -18,7 +18,7 @@ var addSprites = function () {
     sprites = _.orderBy(sprites, ['deep'], ['asc']);
 
     //并将其push进精灵渲染数组
-    for (let i = 0; i < sprites.length; i++) {
+    for (var i = 0; i < sprites.length; i++) {
         window.Gamex.sprites.push(sprites[i]);
     }
 
