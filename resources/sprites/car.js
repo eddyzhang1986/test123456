@@ -1,6 +1,8 @@
 ﻿//第一个小精灵
-var car = function (x, y, vx, vy, deep) {
+var car = function (key, collisionName, type, usePhy, deep, x, y, vx, vy, ax, ay) {
 
+    //唯一标识
+    this.key = key;
     this.deep = deep;
     this.imageUrl = 'resources/images/sprite1.png';
     this.img = new Image();
@@ -8,19 +10,7 @@ var car = function (x, y, vx, vy, deep) {
     this.showCount = 0;
     this.index = 0;
 
-    //坐标
-    this.x = x;
-    this.y = y;
-
-    //初始速度
-    this.vx = vx;
-    this.vy = vy;
-
-    //初始加速度
-    this.ax = 0;
-    this.ay = 0;
-
-
+    //设置物理模型的宽和高
     this.width = 175;
     this.height = 175;
 
@@ -28,8 +18,16 @@ var car = function (x, y, vx, vy, deep) {
     this.direct = 2;
 
     //是否使用物理引擎的特性
-    this.usePhy = true;
+    this.usePhy = usePhy;
+
+    //继承自物理模型
+    PhysicsEntity.call(this, collisionName, type, this.width, this.height, x, y, vx, vy, ax, ay);
 }
+
+//继承原型链上的方法(使用组合继承方式对物理特性实体类进行继承关系,以实现更好的复用)
+car.prototype = new PhysicsEntity();
+
+//继承原型链上的方法后扩展出的方法
 car.prototype.update = function (elapsed) {
     //每秒钟刷1次动画,每次动画持续1000/10毫秒,除以每帧绘制所用的毫秒数,就等于每个动画要持续多少个绘制帧
     var count = Math.round((1000 / 10) / elapsed);
