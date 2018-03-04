@@ -13,6 +13,10 @@ var game = function (cavs) {
 
     //拥有物理特性的精灵列表更新
     var updatePhy = function (sp, elapsed) {
+
+        //按深度分组,同一组深度的物理刚体才可能发生碰撞
+        //orderBy deep
+
         for (var i = 0; i < sp.length; i++) {
             //速度 * 时间 / 1000 = 每帧移动的距离 单位为 px/秒
             if (sp[i].vx) {
