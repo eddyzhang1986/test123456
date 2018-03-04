@@ -1,5 +1,5 @@
 ﻿//第一个小精灵
-var car = function (key, collisionName, type, usePhy, deep, direct, x, y, vx, vy, ax, ay) {
+var car = function (key, collisionName, type, group, usePhy, deep, direct, x, y, vx, vy, ax, ay) {
 
     //唯一标识
     this.key = key;
@@ -21,7 +21,7 @@ var car = function (key, collisionName, type, usePhy, deep, direct, x, y, vx, vy
     this.usePhy = usePhy;
 
     //继承自物理模型
-    PhysicsEntity.call(this, collisionName, type, this.width, this.height, x, y, vx, vy, ax, ay);
+    PhysicsEntity.call(this, collisionName, type, group, this.width, this.height, x, y, vx, vy, ax, ay);
 }
 
 //继承原型链上的方法(使用组合继承方式对物理特性实体类进行继承关系,以实现更好的复用)

@@ -1,8 +1,9 @@
 //用于碰撞的物理实体类
-var PhysicsEntity = function (collisionName, type, width, height, x, y, vx, vy, ax, ay) {
+var PhysicsEntity = function (collisionName, type, group, width, height, x, y, vx, vy, ax, ay) {
 
     //如果没有给定参数则设置默认值,类型表示碰撞检测的处理
     this.type = type || PhysicsEntity.DYNAMIC;
+    this.group = group;
 
     //代表碰撞实体中的另外一个对象
     this.collision = collisionName || PhysicsEntity.ELASTIC;
@@ -70,6 +71,9 @@ PhysicsEntity.prototype = {
     },
     getBottom: function () {
         return this.y + this.height;
+    },
+    getGroup: function () {
+        this.group;
     }
 }
 
@@ -110,27 +114,30 @@ PhysicsEntity.ELASTIC = 'elastic';
 //碰撞检测器
 // Rect collision tests the edges of each rect to
 // test whether the objects are overlapping the other
-// CollisionDetector.prototype.collideRect = 
-//     function(collider, collidee) {
+// CollisionDetector.prototype.collideRect =
+//     function (collider, collidee) {
 
-//     // Store the collider and collidee edges
-//     var l1 = collider.getLeft();
-//     var t1 = collider.getTop();
-//     var r1 = collider.getRight();
-//     var b1 = collider.getBottom();
+//         // Store the collider and collidee edges
+//         var l1 = collider.getLeft();
+//         var t1 = collider.getTop();
+//         var r1 = collider.getRight();
+//         var b1 = collider.getBottom();
+//         var g1 = collider.getGroup();
 
-//     var l2 = collidee.getLeft();
-//     var t2 = collidee.getTop();
-//     var r2 = collidee.getRight();
-//     var b2 = collidee.getBottom();
+//         var l2 = collidee.getLeft();
+//         var t2 = collidee.getTop();
+//         var r2 = collidee.getRight();
+//         var b2 = collidee.getBottom();
+//         var g2 = collidee.getGroup();
 
-//     // If the any of the edges are beyond any of the
-//     // others, then we know that the box cannot be
-//     // colliding
-//     if (b1 < t2 || t1 > b2 || r1 < l2 || l1 > r2) {
-//         return false;
-//     }
 
-//     // If the algorithm made it here, it had to collide
-//     return true;
-// };
+//         // If the any of the edges are beyond any of the
+//         // others, then we know that the box cannot be
+//         // colliding
+//         if (b1 < t2 || t1 > b2 || r1 < l2 || l1 > r2 || (g1 != g2)) {
+//             return false;
+//         }
+
+//         // If the algorithm made it here, it had to collide
+//         return true;
+//     };
