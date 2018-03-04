@@ -6,8 +6,8 @@ var addSprites = function () {
     //渲染列表
     sprites.push(new bg(4));
     sprites.push(new bg2(4));
-    sprites.push(new frameLabel(3));
-    sprites.push(new startButton(2));
+    sprites.push(new frameLabel(5));
+    sprites.push(new startButton(6));
 
     sprites.push(new car("player1", "elastic", "dynamic", "group1", true, 100, 2, 180, 380, 0, 0, 0, 0, 0));
     sprites.push(new car("player2", "elastic", "dynamic", "group1", true, 99, 1, 580, 380, -100, 0, 0, 0, 0));
