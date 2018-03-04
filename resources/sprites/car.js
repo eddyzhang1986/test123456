@@ -1,5 +1,5 @@
 ﻿//第一个小精灵
-var car = function (key, collisionName, type, usePhy, deep, x, y, vx, vy, ax, ay) {
+var car = function (key, collisionName, type, usePhy, deep, direct, x, y, vx, vy, ax, ay) {
 
     //唯一标识
     this.key = key;
@@ -15,7 +15,7 @@ var car = function (key, collisionName, type, usePhy, deep, x, y, vx, vy, ax, ay
     this.height = 175;
 
     //默认小车朝前面开
-    this.direct = 2;
+    this.direct = direct;
 
     //是否使用物理引擎的特性
     this.usePhy = usePhy;
