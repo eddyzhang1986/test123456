@@ -10,7 +10,7 @@ var addSprites = function () {
     sprites.push(new startButton(6));
 
     sprites.push(new car("player1", "elastic", "dynamic", "group1", true, 100, 2, 180, 380, 0, 0, 0, 0, 0));
-    sprites.push(new car("player2", "elastic", "dynamic", "group1", true, 99, 1, 580, 380, -100, 0, 0, 0, 0));
+    sprites.push(new car("player2", "elastic", "dynamic", "group1", true, 99, 1, 580, 380, -100, 30, 0, 0, 0));
 
     //sprites.push(new sprite2(cavs, 1));
     //sprites.push(new sprite3(cavs, 1));
